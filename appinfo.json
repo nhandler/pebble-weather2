@@ -1,0 +1,21 @@
+{
+    "versionLabel": "1.0",
+    "uuid": "5e255acc-988e-4327-845b-cc87f713ade3",
+    "appKeys": {
+        "status": 0,
+        "message": 1
+    },
+    "longName": "pebble-weather",
+    "versionCode": 1,
+    "capabilities": [
+        ""
+    ],
+    "shortName": "pebble-weather",
+    "companyName": "nathan.handler@gmail.com",
+    "watchapp": {
+        "watchface": false
+    },
+    "resources": {
+        "media": []
+    }
+}
