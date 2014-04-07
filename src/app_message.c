@@ -4,8 +4,7 @@ Window *window;
 	
 // Key values for AppMessage Dictionary
 enum {
-	STATUS_KEY = 0,	
-	MESSAGE_KEY = 1
+	MESSAGE_KEY = 0
 };
 
 // Write message to buffer & send
@@ -13,7 +12,6 @@ void send_message(void){
 	DictionaryIterator *iter;
 	
 	app_message_outbox_begin(&iter);
-	dict_write_uint8(iter, STATUS_KEY, 0x1);
 	dict_write_cstring(iter, MESSAGE_KEY, "Hi Phone, I'm a Pebble!");
 
 	dict_write_end(iter);
@@ -23,11 +21,6 @@ void send_message(void){
 // Called when a message is received from PebbleKitJS
 static void in_received_handler(DictionaryIterator *received, void *context) {
 	Tuple *tuple;
-	
-	tuple = dict_find(received, STATUS_KEY);
-	if(tuple) {
-		APP_LOG(APP_LOG_LEVEL_DEBUG, "Received Status: %d", (int)tuple->value->uint32); 
-	}
 	
 	tuple = dict_find(received, MESSAGE_KEY);
 	if(tuple) {
